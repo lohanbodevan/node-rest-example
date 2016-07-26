@@ -27,4 +27,23 @@ describe('API tests suite', function() {
                 done();
             });
     });
+
+    it('Healthcheck should check database connection', function(done) {
+        let expected = {
+            database: true
+        }
+
+        request
+            .get('/healthcheck')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(HTTPStatus.OK)
+            .end(function(err, res) {
+                if (err) return done(err);
+
+                assert.equal(HTTPStatus.OK, res.status);
+                assert.equal(expected.database, res.body.database);
+                done();
+            });
+    });
 });

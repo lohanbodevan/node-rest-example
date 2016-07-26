@@ -13,7 +13,9 @@
     "http-status": "^0.2.3",
     "koa": "^1.2.1",
     "koa-body-parser": "^1.1.2",
-    "koa-router": "^5.4.0"
+    "koa-router": "^5.4.0",
+    "sequelize": "^3.23.6",
+    "sqlite3": "^3.1.4"
   },
   "engines": {
     "node": "6.3.1"

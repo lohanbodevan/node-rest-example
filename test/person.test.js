@@ -9,8 +9,10 @@ let assert = Chai.assert;
 describe('Person tests suite', function() {
     it('Repository Person has connection sigleton object', function(done) {
         const person = new Person(MockRepository);
-        assert.instanceOf(person.model, ModelMock);
-        done();
+        person._getModel().then(function(model) {
+            assert.instanceOf(model, ModelMock);
+            done();
+        });
     });
 
     it('getAll method should return collection', function *getAll(done) {

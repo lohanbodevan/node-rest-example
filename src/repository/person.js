@@ -2,12 +2,17 @@ var PersonModel = require('./model/person');
 
 class Person {
     constructor(connection) {
-        this.model = PersonModel.getModel(connection);
+        this._conn = connection;
     }
 
     *getAll() {
-        let data = yield this.model.findAll();
-        return data.map(i => i.toJSON());
+        let model = yield this._getModel();
+
+        return (yield model.findAll()).map(i => i.toJSON());
+    }
+
+    _getModel() {
+        return PersonModel.getModel(this._conn);
     }
 }
 

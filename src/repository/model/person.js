@@ -12,12 +12,13 @@ exports.getModel = function(connection) {
         }
     });
 
-    Person.sync().then(function () {
-        return Person.create({
+    //force: true, recreate table
+    return Person.sync({force: false}).then(function () {
+        Person.create({
             firstName: 'John',
             lastName: 'Hancock'
         });
-    });
 
-    return Person;
+        return Person;
+    });
 };

@@ -7,7 +7,7 @@ let dbUser = process.env.DB_USER || '';
 let dbPassword = process.env.DB_PASSWORD || '';
 let dbHost = process.env.DB_HOST || '';
 let dbDialect = process.env.DB_DIALECT || 'sqlite';
-let dbStorage = process.env.DB_STORAGE || '../../database.sqlite';
+let dbStorage = process.env.DB_STORAGE || './database.sqlite';
 
 var sequelize = new Sequelize(dbName, dbUser, dbPassword, {
     host: dbHost,

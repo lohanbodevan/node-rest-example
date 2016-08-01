@@ -1,15 +1,13 @@
-var Router = require('koa-router');
+import Router from 'koa-router';
 
-var {healthcheck} = require('./handler/healthcheck');
-var {persons} = require('./handler/person');
+import healthcheck from './handler/healthcheck';
+import {getPersons} from './handler/person';
 
-var exports = module.exports = {};
+export default function () {
+    const routes = new Router({});
 
-exports.router = function() {
-    let route = new Router({});
+    routes.get('healthcheck', '/healthcheck', healthcheck); 
+    routes.get('persons', '/persons', getPersons); 
 
-    route.get('healthcheck', '/healthcheck', healthcheck); 
-    route.get('persons', '/persons', persons); 
-
-    return route;
+    return routes;
 };

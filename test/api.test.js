@@ -1,8 +1,8 @@
-var HTTPStatus = require('http-status');
-var Chai = require('chai');
-var Supertest = require('supertest');
+import HTTPStatus from 'http-status';
+import Chai from 'chai';
+import Supertest from 'supertest';
 
-var app = require('../src/app');
+import app from '../src/app';
 
 let expect = Chai.expect;
 let assert = Chai.assert;

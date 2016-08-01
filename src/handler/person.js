@@ -1,8 +1,6 @@
-var Person = require('../repository/person');
+import Person from '../repository/person';
 
-var exports = module.exports = {};
-
-exports.persons = function*() {
+export function *getPersons() {
     const person = new Person(this.repository);    
     this.body = yield person.getAll();
     console.info('Found ' + this.body.length + ' persons');

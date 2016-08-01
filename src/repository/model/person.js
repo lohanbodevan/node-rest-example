@@ -1,24 +1,26 @@
-var Sequelize = require('sequelize');
+import Sequelize from 'sequelize';
 
-var exports = module.exports = {};
-
-exports.getModel = function(connection) {
-    let Person = connection.define('person', {
-        firstName: {
-            type: Sequelize.STRING
-        },
-        lastName: {
-            type: Sequelize.STRING
-        }
-    });
-
-    //force: true, recreate table
-    return Person.sync({force: false}).then(function () {
-        Person.create({
-            firstName: 'John',
-            lastName: 'Hancock'
+class PersonModel {
+    static getModel(connection) {
+        let Person = connection.define('person', {
+            firstName: {
+                type: Sequelize.STRING
+            },
+            lastName: {
+                type: Sequelize.STRING
+            }
         });
 
-        return Person;
-    });
+        //force: true, recreate table
+        return Person.sync({force: false}).then(function () {
+            Person.create({
+                firstName: 'John',
+                lastName: 'Hancock'
+            });
+
+            return Person;
+        });
+    }
 };
+
+export default PersonModel;

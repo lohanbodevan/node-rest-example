@@ -1,7 +1,7 @@
-var Chai = require('chai');
+import Chai from 'chai';
 
-var app = require('../src/app');
-var Person = require('../src/repository/person');
+import app from '../src/app';
+import Person from '../src/repository/person';
 
 let expect = Chai.expect;
 let assert = Chai.assert;

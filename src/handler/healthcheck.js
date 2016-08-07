@@ -1,8 +1,6 @@
-var HTTPStatus = require('http-status');
+import HTTPStatus from 'http-status';
 
-var exports = module.exports = {};
-
-exports.healthcheck = function() {
+export default function healthcheck() {
     let databaseConnection = true;
     this.repository
         .authenticate()

@@ -11,9 +11,19 @@ Node.js 6.x
 npm install
 ```
 
+## Run Build
+```
+npm run build
+```
+
 ## Run Tests
 ```
 npm test
+```
+
+## Run App (Dev mode)
+```
+npm run dev
 ```
 
 ## Run App

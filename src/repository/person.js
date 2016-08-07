@@ -1,4 +1,4 @@
-var PersonModel = require('./model/person');
+import PersonModel from './model/person';
 
 class Person {
     constructor(connection) {
@@ -16,4 +16,4 @@ class Person {
     }
 }
 
-module.exports = Person
+export default Person;

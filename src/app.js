@@ -1,16 +1,15 @@
-var Koa = require('koa');
-var bodyParser = require('koa-body-parser');
+import Koa from 'koa';
+import bodyParser from 'koa-body-parser';
 
-var Router = require('./routes');
-var Database = require('./lib/database');
+import Router from './routes';
+import database from './lib/database';
 
 const app = new Koa();
 
-const router = Router.router();
 app
-    .use(Database.connection)
+    .use(database)
 	.use(bodyParser())
-	.use(router.routes())
-	.use(router.allowedMethods())
+	.use(Router().routes())
+	.use(Router().allowedMethods());
 
 module.exports = app;
